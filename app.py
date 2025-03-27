@@ -739,5 +739,9 @@ def test_api_key():
 def execute_download():
     return download_selected_images()
 
+# At the end of your app.py file, add:
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    # This will only run when you execute the file directly, not when imported by Vercel
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
