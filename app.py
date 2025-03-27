@@ -739,7 +739,16 @@ def test_api_key():
 def execute_download():
     return download_selected_images()
 
-# At the end of your app.py file, add:
+# Function to check if file extension is allowed
+def allowed_file(filename):
+    ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+# Add missing import
+from flask import url_for
+
+# Set default API key
+app.config['GEMINI_API_KEY'] = os.environ.get('GEMINI_API_KEY', '')
 
 if __name__ == '__main__':
     # This will only run when you execute the file directly, not when imported by Vercel

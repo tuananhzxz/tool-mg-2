@@ -1,4 +1,4 @@
 from app import app
 
-if __name__ == "__main__":
-    app.run()
+# This file serves as the entry point for Vercel
+# No app.run() is needed here as Vercel handles that
